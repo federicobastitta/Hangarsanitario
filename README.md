@@ -46,7 +46,7 @@ body{
   text-align:right;
 }
 
-/* Carátula */
+/* Portada */
 .hero img{
   width:100%;
   display:block;
@@ -111,17 +111,17 @@ body{
 
 <div class="container">
 
-  <!-- LOGO SUPERIOR -->
+  <!-- LOGO INSTITUCIONAL -->
   <div class="brandbar">
     <img src="https://raw.githubusercontent.com/federicobastitta/Hangarsanitario/refs/heads/main/logo%20colores%20de%20la%20pagina.png"
          alt="ALFA SKY Logo">
     <div class="tag">Propuesta institucional · Aeroparque Jorge Newbery</div>
   </div>
 
-  <!-- CARÁTULA / PORTADA -->
+  <!-- PORTADA CON HANGAR MÉDICO -->
   <div class="hero">
-    <img src="https://raw.githubusercontent.com/federicobastitta/Hangarsanitario/refs/heads/main/logo%20colores%20de%20la%20pagina.png"
-         alt="ALFA SKY - Portada institucional">
+    <img src="https://raw.githubusercontent.com/federicobastitta/Hangarsanitario/refs/heads/main/aeropuertos22.png"
+         alt="Hangar Sanitario en Aeroparque Jorge Newbery">
   </div>
 
   <!-- TÍTULO -->
@@ -148,14 +148,10 @@ body{
 
   <div class="section">
     <h2>2. Ventaja estratégica de Aeroparque</h2>
-    <p>
-      Aeroparque Jorge Newbery posee una ventaja diferencial única en el país, que lo
-      posiciona naturalmente como base de operaciones para vuelos sanitarios:
-    </p>
     <ul>
-      <li>Es el aeropuerto más cercano a los principales hospitales, sanatorios y centros de alta complejidad del Área Metropolitana de Buenos Aires.</li>
-      <li>Permite reducir de manera significativa los tiempos críticos de traslado.</li>
-      <li>Facilita la articulación directa con ambulancias, efectores de salud y sistemas de derivación.</li>
+      <li>Es el aeropuerto más cercano a los principales hospitales del AMBA.</li>
+      <li>Reduce drásticamente los tiempos críticos de traslado médico.</li>
+      <li>Facilita la integración con ambulancias, sanatorios y sistemas de derivación.</li>
     </ul>
     <p>
       Estas condiciones convierten a Aeroparque en el hub sanitario aéreo natural de la Argentina.
@@ -165,20 +161,20 @@ body{
   <div class="section">
     <h2>3. Propuesta de valor</h2>
     <ul>
-      <li>Prestación sanitaria aérea exclusiva e inexistente actualmente en Aeroparque.</li>
-      <li>Servicio diferencial dentro de la red aeroportuaria nacional.</li>
-      <li>Valor institucional y reputacional vinculado a la salud.</li>
+      <li>Servicio sanitario aéreo exclusivo e inexistente actualmente en Aeroparque.</li>
+      <li>Prestación diferencial dentro de la red aeroportuaria nacional.</li>
+      <li>Alto valor institucional, sanitario y reputacional.</li>
       <li>Nuevo vertical de negocio con potencial de crecimiento sostenido.</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>4. Modelo de vinculación con Aeropuertos Argentina 2000</h2>
+    <h2>4. Modelo de vinculación institucional</h2>
     <ul>
-      <li>Asociación estratégica o participación en el negocio.</li>
+      <li>Asociación estratégica con Aeropuertos Argentina 2000.</li>
       <li>Revenue sharing por operación.</li>
-      <li>Desarrollo conjunto del servicio.</li>
-      <li>Hangar sanitario institucional.</li>
+      <li>Desarrollo conjunto del hangar sanitario.</li>
+      <li>Prestación distintiva del aeropuerto.</li>
     </ul>
   </div>
 
