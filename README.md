@@ -6,112 +6,127 @@
 <title>ALFA SKY | Propuesta de Desarrollo</title>
 
 <style>
-  body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f6f9;
-    color:#0f172a;
-  }
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f6f9;
+  color:#0f172a;
+}
 
-  .container{
-    max-width:1100px;
-    margin:30px auto;
-    background:#ffffff;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.12);
-    overflow:hidden;
-  }
+.container{
+  max-width:1100px;
+  margin:30px auto;
+  background:#ffffff;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  overflow:hidden;
+}
 
-  /* Barra de marca */
-  .brandbar{
-    background:#0b1220;
-    padding:18px 26px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-  }
-  .brandbar img{
-    height:46px;
-    width:auto;
-    display:block;
-  }
-  .brandbar .tag{
-    color:#cbd5e1;
-    font-size:13px;
-    letter-spacing:.2px;
-    opacity:.92;
-    text-align:right;
-    line-height:1.35;
-  }
+/* Barra de marca */
+.brandbar{
+  background:#0b1220;
+  padding:18px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brandbar img{
+  height:46px;
+  width:auto;
+  display:block;
+}
+.brandbar .tag{
+  color:#cbd5e1;
+  font-size:13px;
+  letter-spacing:.2px;
+  opacity:.92;
+  text-align:right;
+  line-height:1.35;
+}
 
-  /* Carátula */
-  .hero img{
-    width:100%;
-    display:block;
-  }
+/* Carátula */
+.hero img{
+  width:100%;
+  display:block;
+}
 
-  /* Encabezado */
-  .header{
-    padding:28px;
-    background:linear-gradient(135deg,#0f1f3d,#1c4fd8);
-    color:#fff;
-  }
-  .header h1{
-    margin:0;
-    font-size:34px;
-    letter-spacing:.2px;
-  }
-  .header p{
-    margin:10px 0 0;
-    opacity:.95;
-    font-size:17px;
-  }
+/* Encabezado */
+.header{
+  padding:28px;
+  background:linear-gradient(135deg,#0f1f3d,#1c4fd8);
+  color:#fff;
+}
+.header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:.2px;
+}
+.header p{
+  margin:10px 0 0;
+  opacity:.95;
+  font-size:17px;
+}
 
-  /* Secciones */
-  .section{
-    padding:32px;
-    border-bottom:1px solid #e5e7eb;
-  }
-  .section h2{
-    margin:0 0 12px;
-    font-size:22px;
-    color:#1d4ed8;
-  }
-  .section p{
-    margin:12px 0;
-    line-height:1.75;
-  }
-  .bullets{
-    margin:12px 0 0;
-    padding-left:18px;
-  }
-  .bullets li{
-    margin:10px 0;
-    line-height:1.65;
-  }
+/* Secciones */
+.section{
+  padding:32px;
+  border-bottom:1px solid #e5e7eb;
+}
+.section h2{
+  margin:0 0 12px;
+  font-size:22px;
+  color:#1d4ed8;
+}
+.section p{
+  margin:12px 0;
+  line-height:1.75;
+}
+.bullets{
+  margin:12px 0 0;
+  padding-left:18px;
+}
+.bullets li{
+  margin:10px 0;
+  line-height:1.65;
+}
 
-  /* Bloque contacto (repetido) */
-  .contact-block{
-    margin-top:16px;
-    padding:14px 16px;
-    background:#eef2ff;
-    border-left:5px solid #1d4ed8;
-    border-radius:12px;
-    line-height:1.6;
-  }
-  .contact-block strong{
-    color:#0f1f3d;
-  }
+/* Firma */
+.signature{
+  background:#0b1220;
+  color:#ffffff;
+  padding:40px 32px;
+}
+.signature h2{
+  margin-top:0;
+  color:#ffffff;
+  font-size:22px;
+}
+.signature-block{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  margin-top:28px;
+}
+.signature-card{
+  min-width:260px;
+}
+.signature-card strong{
+  font-size:18px;
+}
+.signature-card p{
+  margin:6px 0 0;
+  opacity:.85;
+}
 
-  /* Footer */
-  .footer{
-    padding:26px;
-    text-align:center;
-    color:#555;
-    font-size:14px;
-    line-height:1.6;
-  }
+/* Footer */
+.footer{
+  padding:26px;
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  letter-spacing:.2px;
+}
 </style>
 </head>
 
@@ -172,12 +187,6 @@
       Estas condiciones convierten a Aeroparque en el hub sanitario aéreo natural de la
       Argentina, una oportunidad estratégica que hoy no se encuentra explotada.
     </p>
-
-    <!-- contacto repetido (como pediste) -->
-    <div class="contact-block">
-      <strong>Roma 450, La Lucila, Vicente Lopez, Prov. Bs. As.</strong><br>
-      +54 9 11 3001-3232 - info@alfa-sky.com
-    </div>
   </div>
 
   <!-- 3 -->
@@ -221,15 +230,6 @@
     <ul class="bullets">
       <li>Asociación estratégica o participación en el negocio.</li>
       <li>Esquemas de revenue sharing por operación.</li>
-    </ul>
-
-    <!-- contacto repetido (como pediste) -->
-    <div class="contact-block">
-      <strong>Roma 450, La Lucila, Vicente Lopez, Prov. Bs. As.</strong><br>
-      +54 9 11 3001-3232 - info@alfa-sky.com
-    </div>
-
-    <ul class="bullets">
       <li>Desarrollo conjunto del servicio como prestación distintiva del aeropuerto.</li>
       <li>Cesión y desarrollo de un hangar específico con integración institucional.</li>
     </ul>
@@ -265,14 +265,32 @@
       infraestructura, la visión estratégica y el respaldo institucional.
     </p>
     <p>
-      La integración de ambos posibilitaría la creación de un modelo único en el país, con
-      impacto real en la salud y alto valor estratégico
+      La integración de ambos posibilitaría la creación de un modelo único en el país,
+      con impacto real en la salud y alto valor estratégico.
     </p>
   </div>
 
-  <!-- Footer con contacto (también institucional) -->
+  <!-- FIRMA INSTITUCIONAL -->
+  <div class="signature">
+    <h2>Firma Institucional</h2>
+    <div class="signature-block">
+
+      <div class="signature-card">
+        <strong>Dr. Federico Bastitta</strong>
+        <p>CEO · ALFA SKY</p>
+      </div>
+
+      <div class="signature-card">
+        <strong>Ariel Evasio</strong>
+        <p>CEO · ALFA SKY</p>
+        <p>PC</p>
+      </div>
+
+    </div>
+  </div>
+
   <div class="footer">
-    Roma 450, La Lucila, Vicente Lopez, Prov. Bs. As. · +54 9 11 3001-3232 · info@alfa-sky.com
+    Documento institucional — Propuesta de desarrollo estratégico
   </div>
 
 </div>
