@@ -1,370 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Propuesta de Desarrollo | Servicio de Vuelos Sanitarios - Aeroparque</title>
-  <style>
-    :root{
-      --ink:#0f172a;
-      --muted:#475569;
-      --line:#e2e8f0;
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --accent:#1d4ed8;
-      --accent2:#0ea5e9;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
-      color:var(--ink);
-      background:linear-gradient(180deg, var(--bg), #ffffff);
-      line-height:1.55;
-    }
-    .page{
-      max-width: 980px;
-      margin: 36px auto;
-      padding: 0 18px 48px;
-    }
-    .header{
-      background: radial-gradient(1200px 500px at 15% 0%, rgba(29,78,216,.18), transparent 55%),
-                  radial-gradient(900px 450px at 90% 10%, rgba(14,165,233,.18), transparent 55%),
-                  var(--card);
-      border:1px solid var(--line);
-      border-radius: 18px;
-      padding: 28px 28px 18px;
-      box-shadow: 0 10px 30px rgba(2,6,23,.06);
-    }
-    .topline{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(29,78,216,.08);
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing:.4px;
-      text-transform:uppercase;
-    }
-    .meta{
-      color: var(--muted);
-      font-size: 13px;
-      text-align:right;
-      min-width: 240px;
-    }
-    h1{
-      margin: 10px 0 6px;
-      font-size: 28px;
-      letter-spacing:-.2px;
-    }
-    .subtitle{
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .divider{height:1px;background:var(--line);margin:16px 0}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      margin-top:18px;
-    }
-    @media (max-width: 880px){
-      .grid{grid-template-columns:1fr}
-      .meta{text-align:left}
-    }
-    .card{
-      background: var(--card);
-      border:1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 18px;
-      box-shadow: 0 10px 30px rgba(2,6,23,.05);
-    }
-    h2{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing: -.1px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display:inline-block;
-      flex:0 0 auto;
-    }
-    p{margin: 0 0 12px; color: var(--ink);}
-    .muted{color:var(--muted)}
-    ul{margin: 0 0 6px; padding-left: 18px}
-    li{margin: 8px 0; color: var(--ink)}
-    .kpi{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .kpi .box{
-      border:1px dashed rgba(29,78,216,.35);
-      border-radius: 14px;
-      padding: 12px 12px;
-      background: rgba(29,78,216,.04);
-    }
-    .kpi .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.35px}
-    .kpi .value{font-weight:800;margin-top:3px}
-    .footer{
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      color: var(--muted);
-      font-size: 12.5px;
-    }
-    .pill{
-      display:inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: #fff;
-      margin-right:8px;
-      margin-top:6px;
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-    .callout{
-      border-left: 4px solid var(--accent);
-      padding: 12px 14px;
-      background: rgba(29,78,216,.05);
-      border-radius: 12px;
-      margin-top: 10px;
-    }
-    .sign{
-      display:flex;
-      justify-content:flex-end;
-      gap: 28px;
-      flex-wrap:wrap;
-      margin-top: 18px;
-    }
-    .sign .sig{
-      min-width: 220px;
-      text-align: right;
-    }
-    .sig .name{font-weight:800}
-    .sig .role{color:var(--muted);font-size:13px}
-    .smallnote{color:var(--muted);font-size:12.5px}
-    .toc{
-      display:flex;flex-wrap:wrap;gap:8px;margin-top:10px
-    }
-    .toc a{
-      text-decoration:none;
-      color: var(--accent);
-      background: rgba(29,78,216,.06);
-      border:1px solid rgba(29,78,216,.18);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size: 12.5px;
-      font-weight: 700;
-    }
-    .toc a:hover{background: rgba(29,78,216,.1)}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Propuesta | Servicio de Vuelos Sanitarios - Aeroparque</title>
+
+<style>
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    color:#0f172a;
+  }
+
+  .container{
+    max-width:1100px;
+    margin:30px auto;
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    overflow:hidden;
+  }
+
+  .hero img{
+    width:100%;
+    display:block;
+  }
+
+  .header{
+    padding:28px;
+    background:linear-gradient(135deg,#0f1f3d,#1c4fd8);
+    color:#fff;
+  }
+
+  .header h1{
+    margin:0;
+    font-size:32px;
+  }
+
+  .header p{
+    margin-top:8px;
+    opacity:.92;
+    font-size:16px;
+  }
+
+  .meta{
+    margin-top:10px;
+    font-size:13px;
+    opacity:.9;
+    line-height:1.4;
+  }
+
+  .section{
+    padding:28px;
+    border-bottom:1px solid #e5e7eb;
+  }
+
+  .section h2{
+    margin-top:0;
+    font-size:22px;
+    color:#1d4ed8;
+  }
+
+  .section p{
+    margin:10px 0;
+    line-height:1.65;
+  }
+
+  .section ul{
+    padding-left:18px;
+    margin:10px 0 0;
+  }
+
+  .section li{
+    margin:8px 0;
+    line-height:1.55;
+  }
+
+  .callout{
+    margin-top:14px;
+    padding:14px;
+    border-left:4px solid #1d4ed8;
+    background:#eef2ff;
+    border-radius:12px;
+  }
+
+  .footer{
+    padding:28px;
+    text-align:center;
+    color:#555;
+    font-size:14px;
+  }
+</style>
 </head>
 
 <body>
-  <div class="page">
 
-    <section class="header">
-      <div class="topline">
-        <div>
-          <span class="badge">Propuesta de Desarrollo</span>
-          <h1>Servicio de Vuelos Sanitarios desde Aeroparque Jorge Newbery</h1>
-          <p class="subtitle">
-            Operación sanitaria aerotransportada para traslados de alta complejidad, evacuaciones y derivaciones críticas.
-          </p>
-        </div>
-        <div class="meta">
-          <div><strong>Flight Edge S.A.S.</strong> (CUIT 33-71647526-9)</div>
-          <div>Operando comercialmente como <strong>ALFA SKY</strong></div>
-          <div class="smallnote">Documento de trabajo — versión preliminar</div>
-        </div>
-      </div>
+<div class="container">
 
-      <div class="divider"></div>
+  <!-- IMAGEN PORTADA -->
+  <div class="hero">
+    <img src="https://raw.githubusercontent.com/federicobastitta/Hangarsanitario/refs/heads/main/aeropuertos22.png"
+         alt="Hangar Sanitario en Aeroparque Jorge Newbery">
+  </div>
 
-      <div class="toc">
-        <a href="#intro">1. Introducción</a>
-        <a href="#aep">2. Ventaja Aeroparque</a>
-        <a href="#valor">3. Propuesta de valor</a>
-        <a href="#idoneidad">4. Idoneidad</a>
-        <a href="#modelo">5. Vinculación AA2000</a>
-        <a href="#alternativa">6. Alternativa operativa</a>
-        <a href="#cierre">7. Cierre</a>
-      </div>
-
-      <div class="kpi">
-        <div class="box">
-          <div class="label">Base operativa</div>
-          <div class="value">Aeroparque Jorge Newbery (AEP)</div>
-        </div>
-        <div class="box">
-          <div class="label">Vertical de servicio</div>
-          <div class="value">Vuelos Sanitarios / MedEvac</div>
-        </div>
-      </div>
-    </section>
-
-    <div class="grid">
-
-      <main class="card">
-        <h2 id="intro"><span class="dot"></span>1. Introducción</h2>
-        <p>
-          <strong>Flight Edge S.A.S.</strong> (CUIT 33-71647526-9), operando comercialmente bajo el nombre
-          <strong>ALFA SKY</strong>, propone el desarrollo de un servicio aéreo sanitario con base operativa
-          en <strong>Aeroparque Jorge Newbery</strong>, orientado a traslados médicos de alta complejidad,
-          derivaciones críticas, evacuaciones sanitarias y vuelos sanitarios programados.
-        </p>
-        <p class="muted">
-          El proyecto apunta a cubrir una necesidad real del sistema de salud argentino mediante un servicio que
-          actualmente no se encuentra desarrollado en Aeroparque, incorporando una prestación de alto impacto sanitario,
-          operativo e institucional.
-        </p>
-
-        <h2 id="aep" style="margin-top:18px;"><span class="dot"></span>2. Ventaja estratégica de Aeroparque</h2>
-        <p class="muted">
-          Aeroparque Jorge Newbery posee una ventaja diferencial única en el país, que lo posiciona naturalmente como
-          base de operaciones para vuelos sanitarios:
-        </p>
-        <ul>
-          <li>Es el aeropuerto más cercano a los principales hospitales, sanatorios y centros de alta complejidad del AMBA.</li>
-          <li>Permite reducir de manera significativa los tiempos críticos de traslado, factor determinante en situaciones médicas complejas.</li>
-          <li>Facilita la articulación directa con ambulancias, efectores de salud y sistemas de derivación, tanto públicos como privados.</li>
-        </ul>
-        <div class="callout">
-          <strong>Conclusión operativa:</strong> estas condiciones convierten a Aeroparque en el <strong>hub sanitario aéreo natural</strong>
-          de la Argentina, una oportunidad estratégica hoy no explotada.
-        </div>
-
-        <h2 id="valor" style="margin-top:18px;"><span class="dot"></span>3. Propuesta de valor</h2>
-        <p class="muted">
-          El proyecto propone que Aeroparque incorpore un servicio aéreo sanitario exclusivo, inexistente hasta el momento, que aporte:
-        </p>
-        <ul>
-          <li>Una prestación diferencial dentro de la red aeroportuaria nacional.</li>
-          <li>Mejora concreta en la capacidad de respuesta ante emergencias médicas y derivaciones complejas.</li>
-          <li>Valor institucional y reputacional, alineado con innovación y responsabilidad social.</li>
-          <li>Apertura de un nuevo vertical de negocio, con potencial de crecimiento sostenido.</li>
-        </ul>
-
-        <h2 id="idoneidad" style="margin-top:18px;"><span class="dot"></span>4. Idoneidad y origen del proyecto</h2>
-        <p>
-          <strong>ALFA SKY</strong> es una iniciativa impulsada por fundadores con amplia trayectoria en el ámbito de la salud,
-          lo que aporta una comprensión profunda de la lógica médica, asistencial y operativa.
-        </p>
-        <p class="muted">
-          Este origen permite diseñar el servicio no solo desde una perspectiva aeronáutica, sino como un sistema integral de traslado
-          sanitario, contemplando tiempos críticos, coordinación clínica, protocolos médicos y necesidades reales de los efectores de salud.
-        </p>
-
-        <h2 id="modelo" style="margin-top:18px;"><span class="dot"></span>5. Modelo de vinculación con Aeropuertos Argentina 2000</h2>
-        <p class="muted">
-          El objetivo del proyecto es que Aeropuertos Argentina 2000 no sea únicamente un proveedor de espacio, sino un actor estratégico del desarrollo.
-        </p>
-        <p>Se proponen distintas alternativas abiertas, a definir en conjunto:</p>
-        <ul>
-          <li>Asociación estratégica o participación en el negocio.</li>
-          <li>Esquemas de <em>revenue sharing</em> por operación.</li>
-          <li>Desarrollo conjunto del servicio como prestación distintiva del aeropuerto.</li>
-          <li>Cesión y desarrollo de un hangar específico con integración institucional.</li>
-        </ul>
-        <p class="muted">
-          La propuesta prioriza una vinculación de largo plazo, alineada con los intereses estratégicos de ambas partes.
-        </p>
-
-        <h2 id="alternativa" style="margin-top:18px;"><span class="dot"></span>6. Alternativa operativa</h2>
-        <p class="muted">
-          Como alternativa técnica, <strong>ALFA SKY</strong> podría desarrollar el servicio de manera autónoma mediante un hangar propio en Aeroparque.
-          Sin perjuicio de ello, se considera claramente superior la opción de vinculación directa con Aeropuertos Argentina 2000,
-          por su escala, proyección institucional, legitimidad y sinergia estratégica.
-        </p>
-
-        <h2 id="cierre" style="margin-top:18px;"><span class="dot"></span>7. Cierre</h2>
-        <p>
-          El proyecto permite posicionar a Aeroparque Jorge Newbery como un actor central del sistema sanitario nacional,
-          incorporando un servicio aéreo crítico hoy inexistente.
-        </p>
-        <p class="muted">
-          <strong>ALFA SKY</strong> aporta el know-how sanitario y operativo; <strong>Aeropuertos Argentina 2000</strong>, la infraestructura,
-          la visión estratégica y el respaldo institucional. La integración de ambos posibilitaría la creación de un modelo único en el país,
-          con impacto real en la salud y alto valor estratégico.
-        </p>
-
-        <div class="sign">
-          <div class="sig">
-            <div class="name">Ariel Evasio</div>
-            <div class="role">CEO — ALFA SKY</div>
-          </div>
-          <div class="sig">
-            <div class="name">Federico Bastitta</div>
-            <div class="role">CEO — ALFA SKY</div>
-          </div>
-        </div>
-
-      </main>
-
-      <aside class="card">
-        <h2><span class="dot"></span>Resumen ejecutivo</h2>
-        <p class="muted">
-          Propuesta para instalar y operar un servicio sanitario aéreo desde Aeroparque, optimizando tiempos críticos del AMBA y
-          creando un diferencial institucional para el aeropuerto.
-        </p>
-
-        <div class="divider"></div>
-
-        <h2><span class="dot"></span>Drivers estratégicos</h2>
-        <span class="pill">Time-to-care</span>
-        <span class="pill">Continuidad asistencial</span>
-        <span class="pill">Innovación operativa</span>
-        <span class="pill">Impacto social</span>
-        <span class="pill">Nuevo vertical</span>
-
-        <div class="divider"></div>
-
-        <h2><span class="dot"></span>Beneficios para AA2000</h2>
-        <ul>
-          <li>Diferenciación del activo Aeroparque.</li>
-          <li>Ingreso por participación / <em>revenue sharing</em>.</li>
-          <li>Reputación institucional y ESG.</li>
-          <li>Modelo replicable en red aeroportuaria.</li>
-        </ul>
-
-        <div class="divider"></div>
-
-        <h2><span class="dot"></span>Próximos pasos (propuesto)</h2>
-        <ol style="margin:0; padding-left:18px;">
-          <li style="margin:8px 0;">Mesa técnica con Operaciones + Comercial + Legal.</li>
-          <li style="margin:8px 0;">Definir esquema: asociación / revenue / hangar.</li>
-          <li style="margin:8px 0;">Plan de implementación y KPIs de operación.</li>
-        </ol>
-
-        <div class="footer">
-          <div>Flight Edge S.A.S. — ALFA SKY</div>
-          <div class="smallnote">Contacto y datos comerciales a completar</div>
-        </div>
-      </aside>
-
+  <div class="header">
+    <h1>PROPUESTA DE DESARROLLO</h1>
+    <p>Servicio de Vuelos Sanitarios desde Aeroparque Jorge Newbery</p>
+    <div class="meta">
+      Flight Edge S.A.S. (CUIT 33-71647526-9) — Operando comercialmente como <strong>ALFA SKY</strong>
     </div>
   </div>
+
+  <div class="section">
+    <h2>1. Introducción</h2>
+    <p>
+      Flight Edge S.A.S., operando comercialmente bajo el nombre <strong>ALFA SKY</strong>,
+      propone el desarrollo de un servicio aéreo sanitario con base operativa en Aeroparque Jorge Newbery,
+      orientado a traslados médicos de alta complejidad, derivaciones críticas, evacuaciones sanitarias
+      y vuelos sanitarios programados.
+    </p>
+    <p>
+      El proyecto apunta a cubrir una necesidad real del sistema de salud argentino mediante
+      un servicio que actualmente no se encuentra desarrollado en Aeroparque,
+      incorporando una prestación de alto impacto sanitario, operativo e institucional.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>2. Ventaja estratégica de Aeroparque</h2>
+    <ul>
+      <li>Ubicación inmediata respecto a hospitales y centros de alta complejidad del AMBA.</li>
+      <li>Reducción significativa de tiempos críticos de traslado.</li>
+      <li>Integración directa con ambulancias y sistemas sanitarios públicos y privados.</li>
+    </ul>
+    <div class="callout">
+      Aeroparque se posiciona naturalmente como el hub sanitario aéreo de la Argentina.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Propuesta de valor</h2>
+    <ul>
+      <li>Servicio sanitario aéreo exclusivo e inexistente hoy en Aeroparque.</li>
+      <li>Nuevo vertical de negocio con crecimiento sostenible.</li>
+      <li>Impacto institucional, sanitario y reputacional.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Modelo de vinculación con Aeropuertos Argentina 2000</h2>
+    <ul>
+      <li>Asociación estratégica o participación societaria.</li>
+      <li>Revenue sharing por operación.</li>
+      <li>Hangar sanitario institucional.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Cierre</h2>
+    <p>
+      La integración entre ALFA SKY y Aeropuertos Argentina 2000 permitirá crear un modelo
+      único en el país, con impacto real en la salud y alto valor estratégico.
+    </p>
+  </div>
+
+  <div class="footer">
+    <strong>Ariel Evasio</strong> — CEO · ALFA SKY &nbsp;&nbsp;|&nbsp;&nbsp;
+    <strong>Federico Bastitta</strong> — CEO · ALFA SKY
+  </div>
+
+</div>
+
 </body>
 </html>
